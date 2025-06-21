@@ -2,7 +2,7 @@ realpath() {
     [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
 }
 
-archs=(arm64 arm x86 x86_64) # arm arm64 x86 x86_64
+archs=(arm64 arm) # arm arm64 x86 x86_64
 export API=26
 export BUILDING_J=20 # -jN
 

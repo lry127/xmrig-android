@@ -1,34 +1,32 @@
-all: libuv hwloc openssl xmrig install
+all: download libuv openssl hwloc xmrig install
 
-libuv: libuv_dl 
-	script/libuv-build.sh
-
+download: libuv_dl openssl_dl hwloc_dl xmrig_dl
+	echo "download finished"
+	
 libuv_dl:
 	script/libuv-fetch.sh
-
-openssl: openssl_dl
-	script/openssl-build.sh
 
 openssl_dl:
 	script/openssl-fetch.sh
 
-xmrig: xmrig_dl
-	script/xmrig-build.sh
+hwloc_dl:
+	script/hwloc-fetch.sh
 
 xmrig_dl:
 	script/xmrig-fetch.sh
 
-xmrig-mo: xmrig-mo_dl
-	script/xmrig-mo-build.sh
+libuv: 
+	script/libuv-build.sh
 
-xmrig-mo_dl:
-	script/xmrig-mo-fetch.sh
+openssl: openssl_dl
+	script/openssl-build.sh
 
-hwloc: hwloc_dl
+xmrig:
+	script/xmrig-build.sh
+
+hwloc:
 	script/hwloc-build.sh
 
-hwloc_dl:
-	script/hwloc-fetch.sh
 
 install:
 	script/install.sh
